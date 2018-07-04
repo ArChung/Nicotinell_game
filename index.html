@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Nicotinell</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1080,user-scalable=0">
+    <!-- hiding the Browser’s User Interface -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- meta start -->
+    <meta name="title" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="copyright" content="" />
+    <link rel="image_src" href="" />
+    <!-- iOS 6 -->
+    <meta name="apple-mobile-web-app-title" content="">
+    <!-- OG -->
+    <meta property="og:title" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="fb:app_id" content="" />
+    <!-- css start-->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="css/default.css">
+    <!-- js start-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/lib/TweenMax.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- archung js -->
+    <script type="text/javascript" src="js/ChungTool.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container" id='app'>
+
+        <div class="page index " @click="channel='info'" v-if='channel=="index"'>
+            <div class="lightBox">
+                <div class="l1 light"></div>
+                <div class="l2 light"></div>
+            </div>
+            <div class="bottomBox"></div>
+        </div>
+        <div class="page info" v-else-if='channel=="info"'>
+            <div class="b1"></div>
+            <div class="b2" @click='startGame'></div>
+            <div class="b3" @click='startGame'></div>
+        </div>
+        <div class="page game" v-if="channel=='game'">
+            <div class="scroeBox">
+                <div class="scroeBar">
+                    <div class="bar" :style='{left: -score+ "%" }'></div>
+                </div>
+                <div class="scroe">{{ score }}</div>
+            </div>
+            <div class="itemsBox">
+                <div v-for='(item,index) in gameArr' :key="index" class='item' :class="[{waiting:item.waiting},{match:item.match},'t'+(item.value)]"
+                    @click='clickItem(index)'>
+                    <div class="pic"></div>
+                </div>
+            </div>
+            <div class="timeBox">
+                <span class='underline'>Time:
+                    <span class='timeLeft'>{{ time }}</span> sec</span>
+            </div>
+        </div>
+        <transition name='fade'>
+            <div class="page lose" v-if='channel == "lose"' @click='channel = "index"'>
+                <div class="title"></div>
+            </div>
+        </transition>
+
+        <transition name='fade'>
+            <div class="page win" v-if='channel == "win"' @click='channel = "index"'>
+                <div class="title"></div>
+            </div>
+        </transition>
+    </div>
+
+    <div style="display: none;">
+        <img src="images/bg4.jpg" alt="">
+        <img src="images/m1.png" alt="">
+        <img src="images/mm1.png" alt="">
+        <img src="images/mm4.png" alt="">
+        <img src="images/t3.png" alt="">
+        <img src="images/bg2.jpg" alt="">
+        <img src="images/m2.png" alt="">
+        <img src="images/mm2.png" alt="">
+        <img src="images/p1.jpg" alt="">
+        <img src="images/tt2.png" alt="">
+        <img src="images/bg3.jpg" alt="">
+        <img src="images/light.png" alt="">
+        <img src="images/mainTitle.png" alt="">
+        <img src="images/mm3.png" alt="">
+        <img src="images/t1.png" alt="">
+    </div>
+
+    <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+
+</html>

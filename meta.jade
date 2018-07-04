@@ -1,0 +1,45 @@
+
+title 123
+meta(charset='utf-8')     
+meta(name='viewport', content='width=640',user-scalable=0)
+// hiding the Browser’s User Interface
+meta(name='apple-mobile-web-app-capable', content='yes')     
+meta(name='mobile-web-app-capable', content='yes')
+// meta start
+meta(name='title', content='')     
+meta(name='description', content='')     
+meta(name='keywords', content='')     
+meta(name='copyright', content='')     
+link(rel='image_src', href='')
+// iOS 6
+meta(name='apple-mobile-web-app-title', content='')
+// OG
+meta(property='og:title', content='')     
+meta(property='og:site_name', content='')     
+meta(property='og:description', content='')     
+meta(property='og:type', content='website')     
+meta(property='og:image', content='')     
+meta(property='og:url', content='')     
+meta(property='fb:app_id', content='')
+
+// css start
+//- link(rel='stylesheet', href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+//- link(rel='stylesheet', href='css/swiper.min.css')
+link(rel='stylesheet', href='css/default.css')
+
+// js start
+script(type='text/javascript', src='js/jquery.js')
+//- script(type='text/javascript', src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+//- script(type='text/javascript', src='js/lib/swiper.min.js')
+script(type='text/javascript', src='js/lib/TweenMax.min.js')
+script(type='text/javascript', src='js/lib/TimelineMax.min.js')
+script(type='text/javascript', src='js/lib/jquery.waitforimages.min.js')
+//- script(type='text/javascript', src='js/lib/jquery.validate.min.js')
+// archung js
+script(type='text/javascript', src='js/ChungTool.js')    
+//- script(type='text/javascript', src='js/FBTool.js')
+
+script.
+	if (!ChungTool.isOnline()) {
+	  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+	  }
