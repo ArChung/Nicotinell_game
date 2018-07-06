@@ -40,7 +40,7 @@
 <body>
     <div class="container" id='app'>
 
-        <div class="page index " @click="channel='info'" v-if='channel=="index"'>
+        <div class="page index " @click="goInfo" v-if='channel=="index"'>
             <div class="lightBox">
                 <div class="l1 light"></div>
                 <div class="l2 light"></div>
@@ -71,13 +71,13 @@
             </div>
         </div>
         <transition name='fade'>
-            <div class="page lose" v-if='channel == "lose"' @click='channel = "index"'>
+            <div class="page lose" v-if='channel == "lose"' @click='goIndex'>
                 <div class="title"></div>
             </div>
         </transition>
 
         <transition name='fade'>
-            <div class="page win" v-if='channel == "win"' @click='channel = "index"'>
+            <div class="page win" v-if='channel == "win"' @click='goIndex'>
                 <div class="title"></div>
             </div>
         </transition>
