@@ -32,15 +32,32 @@ var app = new Vue({
 			let arr = [],
 				count = 1;
 			for (let index = 0; index < 20; index++) {
+				let matchVal ;
+
+				switch(count){
+					case 1:
+						matchVal = 4;
+						break;
+					case 2:
+						matchVal = 3;
+						break;
+					case 3:
+						matchVal = 2;
+						break;
+					case 4:
+						matchVal = 1;
+						break;
+				}
 				arr.push({
 					value: count,
 					waiting: false,
 					match: false,
+					matchVal: matchVal,
 				})
 				count = (count >= 4) ? 1 : count + 1;
 			}
-			arr[17].value = 1;
-			arr[18].value = 4;
+			// arr[17].value = 1;
+			// arr[18].value = 4;
 			arr.sort(function () {
 				return 0.5 - Math.random()
 			});
@@ -120,7 +137,7 @@ var app = new Vue({
 				}
 
 				// 選跟第一個不一樣
-				if (now.value != prev.value) {
+				if (now.value != prev.matchVal) {
 					this.waitingIndex = -1;
 					prev.waiting = false;
 					this.punish();
